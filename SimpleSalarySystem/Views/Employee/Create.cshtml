@@ -1,0 +1,28 @@
+﻿@model SimpleSalarySystem.Models.Employee
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Add Employee";
+}
+
+<h2 class="text-center mb-4">Add Employee</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "card p-4 shadow-sm" }))
+{
+    <div class="mb-3">
+        <label class="form-label">Name:</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Hourly Rate:</label>
+        @Html.TextBoxFor(m => m.HourlyRate, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Hours Worked:</label>
+        @Html.TextBoxFor(m => m.HoursWorked, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Calculate Salary</button>
+}

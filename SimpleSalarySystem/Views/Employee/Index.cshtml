@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h2>Salary Calculator</h2>
+
+@model List<SimpleSalarySystem.Models.Employee>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Employee Salary List";
+}
+
+<h2 class="text-center mb-4">Employee Salary List</h2>
+<a href="@Url.Action("Create", "Employee")" class="btn btn-primary mb-3">Add New Employee</a>
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Hourly Rate</th>
+            <th>Hours Worked</th>
+            <th>Tax</th>
+            <th>SSS</th>
+            <th>PagIbig</th>
+            <th>Total Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.HourlyRate</td>
+                <td>@employee.HoursWorked</td>
+                <td>@employee.Tax</td>
+                <td>@employee.SSS</td>
+                <td>@employee.PagIbig</td>
+                <td>@employee.TotalSalary</td>
+            </tr>
+        }
+    </tbody>
+</table>
